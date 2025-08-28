@@ -1,0 +1,22 @@
+---
+apiVersion: devopstoolkitseries.com/v1alpha1
+kind: AppClaim
+metadata:
+  annotations:
+    gitHubOrg: ET-IDP-POC
+    gitHubRepo: expert-idp
+  name: expert-idp
+spec:
+  id: expert-idp
+  compositionSelector:
+    matchLabels:
+      type: backend-db-aws
+      location: local
+  parameters:
+    namespace: development
+    image: docker.io/jwhinn/expert-idp:latest
+    port: 8080
+    host: acme.com
+    db:
+      version: "13"
+      size: medium
